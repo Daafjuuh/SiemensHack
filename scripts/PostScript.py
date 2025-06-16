@@ -15,9 +15,12 @@ write_url = f"{base_url}/awp/Demobox/Demobox+.html"
 username = input("Voer gebruikersnaam in:")
 password = input("Voer wachtwoord in:")
 
+# Nieuwe waarde voor de tijd om de ballon te vullen (in seconden)
+fill_time = input("Voer de nieuwe tijd in om de ballon te vullen (in seconden): ")
+
 # Variabele en waarde om te schrijven
 payload = {
-    '"DB_HMI".Statuses.T_VULLEN': '25' 
+    '"DB_HMI".Statuses.T_VULLEN': fill_time 
 }
 
 # Sessie aanmaken
