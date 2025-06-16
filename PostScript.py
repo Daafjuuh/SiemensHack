@@ -12,12 +12,12 @@ login_url = f"{base_url}/FormLogin"
 write_url = f"{base_url}/awp/Demobox/Demobox+.html"  
 
 # Inloggegevens
-username = "admin"
-password = "" 
+username = input("Voer gebruikersnaam in:")
+password = input("Voer wachtwoord in:")
 
 # Variabele en waarde om te schrijven
 payload = {
-    '"DB_HMI".Statuses.T_VULLEN': '25' 
+    '"DB_HMI".Statuses.T_VULLEN': '10' 
 }
 
 # Sessie aanmaken
