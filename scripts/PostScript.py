@@ -17,7 +17,7 @@ password = input("Voer wachtwoord in:")
 
 # Variabele en waarde om te schrijven
 payload = {
-    '"DB_HMI".Statuses.T_VULLEN': '10' 
+    '"DB_HMI".Statuses.T_VULLEN': '25' 
 }
 
 # Sessie aanmaken
