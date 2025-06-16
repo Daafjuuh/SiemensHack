@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hack 1 - PLC Variable Write</title>
+</head>
+<body>
+    <h1>Hack 1 - Manipuleer PLC variabele</h1>
+
+    <form method="POST">
+        <label for="username">Gebruikersnaam:</label><br>
+        <input type="text" id="username" name="username" required><br><br>
+
+        <label for="password">Wachtwoord:</label><br>
+        <input type="password" id="password" name="password" required><br><br>
+
+        <label for="fill_time">Tijd om ballon te vullen (seconden):</label><br>
+        <input type="text" id="fill_time" name="fill_time" required><br><br>
+
+        <button type="submit">🚀 Verstuur naar PLC</button>
+    </form>
+
+    {% if message %}
+        <p><strong>Resultaat:</strong> {{ message }}</p>
+    {% endif %}
+
+    <br>
+    <a href="/hacks">⬅️ Terug naar Hacks</a>
+</body>
+</html>
