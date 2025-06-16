@@ -12,7 +12,7 @@ elif userInput == "1":
  
 elif userInput == "2":
     import scripts.AlwaysOffScript
- 
+
 elif userInput == "3":
     import scripts.AutomatedAlwaysOffScript
  
