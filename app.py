@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request
-from scripts.PostScript import hack_plc
+from scripts.PostScript import *
 
 app = Flask(__name__)
 
@@ -18,7 +18,8 @@ def hack1():
         username = request.form["username"]
         password = request.form["password"]
         fill_time = request.form["fill_time"]
+        empty_time = request.form["empty_time"]
 
-        message = hack_plc(username, password, fill_time)
+        message = hack_plc(username, password, fill_time, empty_time)
 
     return render_template("hack1.html", message=message)

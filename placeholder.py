@@ -6,16 +6,16 @@ The goal is to manipulate the PLC's variable directly via HTTP POST requests.
 """
 import requests
 
-def hack_plc(username, password, fill_time, empty_time):
+def hack_plc():
     base_url = "http://192.168.0.1"
     login_url = f"{base_url}/FormLogin"
     write_url = f"{base_url}/awp/Demobox/Demobox+.html"
     # Inloggegevens
-    username = username
-    password = password
+    username = input("Voer gebruikersnaam in: ")
+    password = input("Voer wachtwoord in: ")
     # Nieuwe waardes voor de tijd om de ballon te vullen en leeg te laten (in seconden)
-    fill_time = fill_time
-    empty_time = empty_time
+    fill_time = input("Voer de nieuwe tijd in om de ballon te vullen (in seconden): ")
+    empty_time = input("Voer de nieuwe tijd in om de ballon leeg te laten (in seconden): ")
     # Variabelen en waardes om te schrijven
     payload_fill = {
         '"DB_HMI".Statuses.T_VULLEN': fill_time 
@@ -59,3 +59,5 @@ def hack_plc(username, password, fill_time, empty_time):
         print("Waarde succesvol geschreven :D")
     else:
         print("Waarde schrijven mislukt >:(")
+
+hack_plc()
