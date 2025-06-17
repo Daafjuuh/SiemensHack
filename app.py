@@ -1,4 +1,5 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
+from scripts.PostScript import *
 
 app = Flask(__name__)
 
@@ -6,6 +7,19 @@ app = Flask(__name__)
 def hello_world():
     return render_template('index.html')
 
-@app.route("/")
+@app.route("/hacks")
 def show_hacks():
     return render_template('hacks.html')
+
+@app.route("/hack1", methods=["GET", "POST"])
+def hack1():
+    message = ""
+    if request.method == "POST":
+        username = request.form["username"]
+        password = request.form["password"]
+        fill_time = request.form["fill_time"]
+        empty_time = request.form["empty_time"]
+
+        message = hack_plc(username, password, fill_time, empty_time)
+
+    return render_template("hack1.html", message=message)
