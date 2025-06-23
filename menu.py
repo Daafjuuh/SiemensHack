@@ -11,7 +11,6 @@ print("--------------------------------------------------")
 print("[A]: Install hydra on WSL (WSL INSTALLED AND CONFIGURED REQUIRED)")
 print("--------------------------------------------------")
 user_input = input("Please enter your choice: ").lower()
-print(user_input)
 if user_input not in ["1", "2", "3", "4", "5", "6", "a"]:
     print("Invalid input, please try again")
  
