@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request
-from scripts.PostScript import *
+from scripts.PostScriptWebVariant import hack_plc
 
 app = Flask(__name__)
 
@@ -23,3 +23,19 @@ def hack1():
         message = hack_plc(username, password, fill_time, empty_time)
 
     return render_template("hack1.html", message=message)
+
+@app.route("/AutomatedAlwaysOffScript", methods=["GET", "POST"])
+def AutomatedAlwaysOffScript():
+    if request.method == "POST":
+        from scripts.AutomatedAlwaysOffScript import start
+        shouldRun = request.form["shouldRun"]
+        start(shouldRun)
+    return render_template("AutomatedAlwaysOffScript.html")
+
+@app.route("/startscript", methods=["GET", "POST"])
+def startscript():
+    if request.method == "POST":
+        from scripts.AutomatedAlwaysOffScript import start
+        start()
+        return redirect("/AutomatedAlwaysOffScript")
+    return redirect("/AutomatedAlwaysOffScript")

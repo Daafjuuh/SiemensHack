@@ -5,17 +5,18 @@ and writes a value to a specific variable.
 The goal is to manipulate the PLC's variable directly via HTTP POST requests.
 """
 import requests
+import time
 
-def hack_plc(username, password, fill_time, empty_time):
+def hack_plc():
     base_url = "http://192.168.0.1"
     login_url = f"{base_url}/FormLogin"
     write_url = f"{base_url}/awp/Demobox/Demobox+.html"
     # Inloggegevens
-    username = username
-    password = password
+    username = input("Voer gebruikersnaam in: ")
+    password = input("Voer wachtwoord in: ")
     # Nieuwe waardes voor de tijd om de ballon te vullen en leeg te laten (in seconden)
-    fill_time = fill_time
-    empty_time = empty_time
+    fill_time = input("Voer de nieuwe tijd in om de ballon te vullen (in seconden): ")
+    empty_time = input("Voer de nieuwe tijd in om de ballon leeg te laten (in seconden): ")
     # Variabelen en waardes om te schrijven
     payload_fill = {
         '"DB_HMI".Statuses.T_VULLEN': fill_time 
@@ -24,7 +25,7 @@ def hack_plc(username, password, fill_time, empty_time):
         '"DB_HMI".Statuses.T_LEGEN': empty_time
     }
     session = requests.Session()
-    session.verify = False  # Geen SSL-verificatie
+    #session.verify = False  # Geen SSL-verificatie
     login_data = {
         "Redirection": "",
         "Login": username,
@@ -33,7 +34,7 @@ def hack_plc(username, password, fill_time, empty_time):
     # Login
     resp_login = session.post(login_url, data=login_data)
     if resp_login.status_code != 200:
-        return f"❌ Login mislukt: {resp_login.status_code}"
+        print(f"Login mislukt: {resp_login.status_code}")
     headers = {
         "Content-Type": "application/x-www-form-urlencoded",
         "Referer": write_url
@@ -46,6 +47,9 @@ def hack_plc(username, password, fill_time, empty_time):
         print("Waarde succesvol geschreven :D")
     else:
         print("Waarde schrijven mislukt >:(")
+
+    time.sleep(2)
+
     """
     ---------------------------------
     Nu de tijd om de ballon leeg te laten schrijven
@@ -59,3 +63,5 @@ def hack_plc(username, password, fill_time, empty_time):
         print("Waarde succesvol geschreven :D")
     else:
         print("Waarde schrijven mislukt >:(")
+
+hack_plc()
