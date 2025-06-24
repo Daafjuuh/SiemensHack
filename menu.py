@@ -24,7 +24,7 @@ elif user_input == "3":
     import scripts.AutomatedAlwaysOffScript
 
 elif user_input == "4":
-    os.system("py slowloris/slowloris.py 192.168.0.1")
+    os.system("py scripts/slowloris.py 192.168.0.1")
 
 elif user_input == "5":
     import os
