@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hack 2 - Zet de PLC automatisch uit wanneer deze begint te werken.</title>
+</head>
+<body>
+    <title>Hack 2 - Zet de PLC automatisch uit wanneer deze begint te werken.</title>
+
+    <h1>Press the button to run the script</h1>
+    <form method="POST">
+        <input type = "hidden" id="shouldRun" name = "shouldRun" value = "True" />
+        <button type="submit">Run script</button>
+    </form>
+    
+    <form method="POST">
+        <input type = "hidden" id="shouldRun" name = "shouldRun" value = "False" />
+        <button type="submit">Stop script</button>
+    </form>
+    
+    <a href="/hacks">⬅️ Terug naar Hacks</a>
+</body>
+</html>
