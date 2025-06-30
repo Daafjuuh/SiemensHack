@@ -27,15 +27,7 @@ def hack1():
 @app.route("/AutomatedAlwaysOffScript", methods=["GET", "POST"])
 def AutomatedAlwaysOffScript():
     if request.method == "POST":
-        from scripts.AutomatedAlwaysOffScript import start
+        from scripts.AutomatedAlwaysOffScriptWebVariant import start
         shouldRun = request.form["shouldRun"]
         start(shouldRun)
     return render_template("AutomatedAlwaysOffScript.html")
-
-@app.route("/startscript", methods=["GET", "POST"])
-def startscript():
-    if request.method == "POST":
-        from scripts.AutomatedAlwaysOffScript import start
-        start()
-        return redirect("/AutomatedAlwaysOffScript")
-    return redirect("/AutomatedAlwaysOffScript")

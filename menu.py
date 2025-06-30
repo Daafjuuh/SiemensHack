@@ -9,9 +9,10 @@ print("[5]: Bruteforce the PLC RDP login with common passwords (WSL/LINUX REQUIR
 print("[6]: Run the scanning script with the added functionality to automatically flip the power state of the PLC (WIP)")
 print("--------------------------------------------------")
 print("[A]: Install hydra on WSL (WSL INSTALLED AND CONFIGURED REQUIRED)")
+print("[B]: Install requirements.txt")
 print("--------------------------------------------------")
 user_input = input("Please enter your choice: ").lower()
-if user_input not in ["1", "2", "3", "4", "5", "6", "a"]:
+if user_input not in ["1", "2", "3", "4", "5", "6", "a", "b"]:
     print("Invalid input, please try again")
  
 elif user_input == "1":
@@ -40,6 +41,11 @@ elif user_input == "a":
     print("Installing hydra on WSL, please wait...")
     os.system("wsl sudo apt install hydra")
     print("Hydra installed successfully, it is ready for use.")
+
+elif user_input == "b":
+    print("Installing requirements.txt, please wait...")
+    os.system("pip install -r requirements.txt")
+    print("Requirements installed successfully, you are ready to go.")
 
 else:
     print("error LOL")
