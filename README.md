@@ -12,6 +12,13 @@ We will use flask to run the web app since we just need a lightweight solution. 
 - Install the dependencies into your virtual environment: pip install -r requirements.txt
 - then run the web server with: flask run
 
+## How to run the menu
+
+> ℹ️ **Info**  
+> Make sure to use the following commandos in a windows terminal(Command Prompt)
+
+- run the following command to start the menu: py menu.py
+
 ## Collaboraters
 
 - Rune Bokken
