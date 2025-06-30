@@ -43,7 +43,7 @@ while True:
         print()
     
     elif user_input == "6":
-        print("WIP")
+        import scripts.FlipCpuState
         print()
 
     elif user_input == "a":
