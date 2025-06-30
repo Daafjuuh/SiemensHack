@@ -12,8 +12,10 @@ while True:
     print("[A]: Installeer hydra op WSL (WSL installatie vereist)")
     print("[B]: Installeer requirements.txt")
     print("--------------------------------------------------")
+    print("[X]: Sluit het programma af")
+    print()
     user_input = input("Aub geef uw keuze: ").lower()
-    if user_input not in ["1", "2", "3", "4", "5", "6", "a", "b"]:
+    if user_input not in ["1", "2", "3", "4", "5", "6", "a", "b", "x"]:
         print("Ongeldige input, probeer het opnieuw.")
     
     elif user_input == "1":
@@ -54,6 +56,10 @@ while True:
         os.system("pip install -r requirements.txt")
         print("Requirements installed successfully, you are ready to go.")
         print()
+
+    elif user_input == "x":
+        os.system("cls")
+        break
 
     else:
         print("error LOL")
