@@ -2,18 +2,20 @@ import os
 
 while True:
     print("Welkom bij het OT-Demo keuzemenu. Kies een optie:")
-    print("[1]: Verander de opblaaswaardes van de PLC *Vereist input*")
-    print("[2]: Voer het 'Scanning script' uit. Hierin ook de mogelijkheid om de PLC uit te zetten wanneer deze op 'RUNNING' staat *Vereist input*")
+    print("[1]: Verander de opblaaswaardes van de PLC")
+    print("[2]: Voer het 'Scanning script' uit om informatie over de PLC op te halen")
     print("[3]: Dit script draait automatisch en zet de PLC uit wanneer deze op 'RUNNING' staat *Vereist geen input*")
     print("[4]: DOS het PLC webportaal met Slowloris *Vereist geen input*")
     print("[5]: Bruteforce de PLC RDP login (WSL/LINUX vereist. HYDRA moet geinstalleerd zijn op WSL/LINUX) *Vereist geen input*")
-    print("[6]: Voer een script uit dat de PLC status (Running/Stop) automatisch omzet iedere zes seconden *Vereist input*")
+    print("[6]: Voer een script uit dat de PLC status (Running/Stop) automatisch omzet iedere zes seconden")
     print("--------------------------------------------------")
     print("[A]: Installeer hydra op WSL (WSL installatie vereist)")
-    print("[B]: Installeer requirements.txt")
+    print("[B]: Installeer de benodigdheden")
     print("--------------------------------------------------")
+    print("[X]: Sluit het programma af")
+    print()
     user_input = input("Aub geef uw keuze: ").lower()
-    if user_input not in ["1", "2", "3", "4", "5", "6", "a", "b"]:
+    if user_input not in ["1", "2", "3", "4", "5", "6", "a", "b", "x"]:
         print("Ongeldige input, probeer het opnieuw.")
     
     elif user_input == "1":
@@ -41,7 +43,7 @@ while True:
         print()
     
     elif user_input == "6":
-        print("WIP")
+        import scripts.FlipCpuState
         print()
 
     elif user_input == "a":
@@ -54,6 +56,10 @@ while True:
         os.system("pip install -r requirements.txt")
         print("Requirements installed successfully, you are ready to go.")
         print()
+
+    elif user_input == "x":
+        os.system("cls")
+        break
 
     else:
         print("error LOL")
