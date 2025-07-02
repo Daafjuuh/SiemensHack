@@ -1,7 +1,17 @@
 import os
 
 while True:
-    print("Welkom bij het OT-Demo keuzemenu. Kies een optie:")
+    print(r"""
+[***************************************************************************************************]
+                                Welkom bij het OT-Demo keuzemenu!
+                   
+            Dit is een script ontwikkkeld voor Equans dat alle functionaliteit bundeld.
+                                    Kies uit de volgende opties:
+                           
+ 
+_______/-> Gemaakt door Rune Bokken, Nicol Tobon Londoño, Kay de Blaauw and David Beljaars <-\_______
+[***************************************************************************************************]
+""")
     print("[1]: Verander de opblaaswaardes van de PLC")
     print("[2]: Voer het 'Scanning script' uit om informatie over de PLC op te halen")
     print("[3]: Dit script draait automatisch en zet de PLC uit wanneer deze op 'RUNNING' staat *Vereist geen input*")
